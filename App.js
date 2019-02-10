@@ -5,8 +5,10 @@
  * @flow
  */
 
-import React, { Component, StyleSheet } from "react";
-import { colors } from "./src/config/colors";
+import React, { Component } from "react";
+import ErrorBoundary from 'react-error-boundary';
+
+import { AppView, Button } from './src/components/'
 // import QuickPicker from "quick-picker";
 // import NavigationService from "./src/services/navigationService";
 // import { timeout } from "./src/services/helpers";
@@ -20,10 +22,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-       Here's the app
-      </div>
-    );
+      <ErrorBoundary>
+        <AppView>
+          test
+          <Button />
+        </AppView>
+      </ErrorBoundary>
+    )
   }
 }
 
