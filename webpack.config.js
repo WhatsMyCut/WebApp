@@ -97,7 +97,7 @@ module.exports = {
           ['@babel/plugin-proposal-class-properties', { 'loose': true }],
           ['@babel/plugin-proposal-object-rest-spread'],
           ['@babel/plugin-transform-runtime'],
-          ['@babel/plugin-transform-modules-commonjs', { 'loose': true }],
+        //   ['@babel/plugin-transform-modules-commonjs', { 'loose': true }],
         //   ['@babel/plugin-transform-object-assign'],
         //   ['@babel/plugin-transform-react-jsx-source'],
         //   ['@babel/plugin-transform-block-scoping']

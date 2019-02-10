@@ -10,8 +10,8 @@ var cachebust = new CacheBuster()
 
 var isProduction = process.env.NODE_ENV === 'production'
 var inputStylesGlob = './src/styles/**/*.scss'
-var inputImagesGlob = './src/images/**'
-var inputFontsGlob = './src/fonts/**'
+var inputImagesGlob = './src/assets/images/**'
+var inputFontsGlob = './src/assets/fonts/**'
 
 var monkeyPatchChokidarToIgnoreNodeModules = () => {
   var chokidar = require('chokidar')

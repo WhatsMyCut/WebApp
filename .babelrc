@@ -1,5 +1,5 @@
 {
-  "presets": [[ "@babel/preset-env", { "useBuiltIns": "usage" }], "@babel/react"],
+  "presets": [[ "@babel/env", { "useBuiltIns": "usage" }], "@babel/react"],
   "plugins": [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-export-default-from",
