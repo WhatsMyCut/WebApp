@@ -1,0 +1,47 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      // Regex for Component Factory to use,
+      // default to "createReactClass"
+      "pragma": "React",
+      // Pragma to use, default to "React"
+      "version": "16.4.1",
+      // React version, default to the latest React stable release
+      "flowVersion": "0.75.0"
+      // Flow version
+    },
+    "propWrapperFunctions": [
+      "forbidExtraProps"
+    ]
+    // The names of any functions used to wrap the
+    // propTypes object, e.g. `forbidExtraProps`.
+    // If this isn't set, any propTypes wrapped in
+    // a function will be skipped.
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "parserOptions.ecmaVersion": true
+    }
+  },
+  "rules": {
+    // overrides
+  }
+}
