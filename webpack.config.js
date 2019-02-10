@@ -51,8 +51,8 @@ module.exports = {
       'react-dom',
       'lodash',
       'jquery',
-    //   'react-router',
-    //   'history'
+      'react-router',
+      'history'
     ]
   },
   devtool: isProduction ? 'source-map' : 'eval',
