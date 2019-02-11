@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { default as thunk }  from 'redux-thunk'
-import { rootReducer } from '../store/reducers/rootReducer'
+import { rootReducer } from './reducers/rootReducer'
 
 // Create the application store with redux.
 // Redux uses `reducers` to allow different types of dispatched

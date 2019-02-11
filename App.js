@@ -6,7 +6,6 @@
  */
 
 import React, { Component } from "react";
-import ErrorBoundary from 'react-error-boundary';
 
 import { AppView, Button } from './src/components/'
 // import QuickPicker from "quick-picker";
@@ -22,12 +21,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <ErrorBoundary>
         <AppView>
           test
           <Button />
         </AppView>
-      </ErrorBoundary>
     )
   }
 }
