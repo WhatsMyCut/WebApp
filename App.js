@@ -7,7 +7,8 @@
 
 import React, { Component } from "react";
 
-import { AppView, Button } from './src/components/'
+import { AppView } from './src/views/'
+import { Button } from './src/components/'
 // import QuickPicker from "quick-picker";
 // import NavigationService from "./src/services/navigationService";
 // import { timeout } from "./src/services/helpers";

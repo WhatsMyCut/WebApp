@@ -1,3 +1,3 @@
 
-export { default as AppView } from './AppView';
+export { default as Container } from './Container';
 export { default as Button } from './Button';

@@ -1,6 +1,6 @@
 import React from 'react'
-import style from "./styles";
 import PropTypes from 'prop-types';
+import { baseStyles } from './styles'
 
 export default class Button extends React.Component {
 
@@ -23,7 +23,7 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-    style: style.button,
+    style: baseStyles.button,
     text: "BUTTON DEFAULT TEXT"
 }
 

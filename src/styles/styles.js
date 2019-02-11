@@ -7,13 +7,17 @@ General rules
 5. no shortcuts for padding or margin, (i.e. need to explicitly set paddingTop and paddingRight). – Note that you can use paddingVertical/paddingHorizontal
 6. no media queries, instead just use Flexbox
  */
-
 import { colors } from "../config/colors";
 import _ from 'lodash';
 
+export const baseColors = {
+    red: colors.red
+};
+
 export const theme = {
   font: "Avenir",
-  color: "#45CAB5"
+  color: "#45CAB5",
+  backgroundColor: colors.primary
 };
 
 export const baseStyles = {
