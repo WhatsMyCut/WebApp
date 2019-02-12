@@ -30,7 +30,7 @@ Container.propTypes = {
 }
 
 Container.defaultProps = {
-  style: baseStyles.container,
-  classname: 'Container',
+  style: {},
+  className: 'container',
 }
 //export default Container

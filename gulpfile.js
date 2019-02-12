@@ -9,7 +9,7 @@ var cachebust = new CacheBuster()
 // time spent loading code that may not be run
 
 var isProduction = process.env.NODE_ENV === 'production'
-var inputStylesGlob = './src/styles/**/*.scss'
+var inputStylesGlob = './src/**/*.scss'
 var inputImagesGlob = './src/assets/images/**'
 var inputFontsGlob = './src/assets/fonts/**'
 
@@ -116,8 +116,8 @@ function compileStylesTask() {
   var sourcemaps = require('gulp-sourcemaps')
   var postcss = require('gulp-postcss')
 
-  var outputDir = './build/styles'
-  var sourcemapDir = '../sourcemaps'
+  var outputDir = './src/dist'
+  var sourcemapDir = './src/dist/sourcemaps'
   var sassOpts = {
     includePaths: ['./node_modules/normalize.css'],
     outputStyle: isProduction ? 'compressed' : 'nested'
@@ -155,7 +155,7 @@ function formatAndLintStylesTask() {
   var scss = require('postcss-scss')
   var reporter = require('postcss-reporter')
 
-  var outputDir = './src/styles'
+  var outputDir = './src/dist'
   var plugins = [
     stylefmt(),
     stylelint({ config: require('./stylelint.config') }),
@@ -165,7 +165,7 @@ function formatAndLintStylesTask() {
 
   return gulp.src(inputStylesGlob)
     .pipe(formatAndLint)
-    .pipe(gulp.dest('./src/styles'))
+    .pipe(gulp.dest(outputDir))
 }
 
 // format and lint scss source files
@@ -177,7 +177,7 @@ gulp.task('make-build-html', ['webpack-with-clean', 'format-and-lint-styles'], f
     return null
   }
   console.log('updating build/index.html for cache busting...')
-  return gulp.src('build/index.html')
+  return gulp.src('./index.html')
     .pipe(cachebust.references())
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('./build/index.html'))
 })

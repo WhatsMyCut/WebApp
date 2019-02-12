@@ -16,14 +16,14 @@ export default class AppView extends Component {
 
   render() {
     return (
-      <Container className="AppView" style={this.props.style}>
-        <Container id="leftPanel" className='left-panel'>
+      <div className="AppView" style={this.props.style}>
+        <Container id="leftPanel" >
             Left
         </Container>
-        <Container id="rightPanel" className={this.props.className}>
+        <Container id="rightPanel">
             Right
         </Container>
-      </Container>
+      </div>
     );
   }
 }
@@ -34,6 +34,7 @@ AppView.propTypes = {
 }
 
 AppView.defaultProps = {
-  style: baseStyles.container
+  className: 'AppView',
+  style: {}
 }
 //export default AppView

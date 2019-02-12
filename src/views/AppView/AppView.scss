@@ -1,4 +1,15 @@
 .AppView {
+  display: flex;
+  background-color: #efefef;
+  width: 100%;
+  min-width: 750px;
+  height: 50px;
+  padding: 0 5px 5px;
+}
+.Appview > div {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
   background-color: red;
 }
 

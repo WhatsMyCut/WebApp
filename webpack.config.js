@@ -3,11 +3,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var srcDirectory = path.resolve('./src');
 var nodeModulesDirectory = path.resolve('node_modules');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 
 var isProduction = process.env.NODE_ENV === 'production'
 
 var getPlugins = () => {
   var plugins = [
+    new CleanWebpackPlugin('build', {} ),
     new webpack.LoaderOptionsPlugin({ debug: true }),
     new HtmlWebpackPlugin({
       inject: true,
@@ -18,8 +22,13 @@ var getPlugins = () => {
       minSizeReduce: 1.5
     }),
     //new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.[hash].js'),
-    new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en)$/)
-  ]
+    new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en)$/),
+    new MiniCssExtractPlugin({
+        filename: "style.css",
+        //filename: './src/styles/' + isProduction ? '[name].[hash].css' : '[name].css',
+        //chunkFilename: './build/styles/' + isProduction ? '[id].[hash].css' : '[id].css',
+    }),
+ ]
 
   if (isProduction) {
     plugins = plugins.concat([
@@ -40,7 +49,9 @@ var getPlugins = () => {
 }
 
 module.exports = {
+  devtool: isProduction ? 'source-map' : 'eval',
   entry: {
+    context: path.join(__dirname, 'main'),
     main: "./main",
     // Analyzed with `webpack-bundle-size-analyzer`
     // to put largest dependencies by size into the vendor bundle
@@ -49,15 +60,26 @@ module.exports = {
     vendor: [
       'react',
       'react-dom',
+      'react-router-dom',
       'lodash',
       'jquery',
-      'react-router-dom',
     ]
   },
-  devtool: isProduction ? 'source-map' : 'eval',
+  output: {
+    path: path.join(__dirname, 'src', 'assets', 'scripts'),
+    filename: 'upli.js',
+    publicPath: '/',
+    chunkFilename: '[id].[hash].js'
+  },
   optimization: {
     splitChunks: {
         cacheGroups: {
+            styles: {
+                name: 'styles.css',
+                test: /\.(sc|c|sa)ss$/,
+                chunks: 'all',
+                enforce: true
+            },
             'common-vendors': {
                 test: /[\\/]node_modules[\\/]/,
                 name: 'common-vendors',
@@ -66,42 +88,73 @@ module.exports = {
             }
         }
     },
-    runtimeChunk: { name: 'core' }
-  },
-  output: {
-    path: __dirname + '/scripts',
-    filename: 'upli.js',
-    chunkFilename: '[id].[hash].js'
+    runtimeChunk: { name: 'runtime' }
   },
   module: {
     rules: [
-    {
-      test: /\.js$/,
-      exclude: /node_modules|bootstrap-datetimepicker/,
-      loader: 'babel-loader'
-    },
     {
         test: /\.ttf$/,
         loader: "url-loader", // or directly file-loader
         include: path.resolve(srcDirectory, "node_modules/react-native-vector-icons"),
     },
     {
-      test: /\.jsx?$/,
-      exclude: /(node_modules|bower_components)/,
+      test: /\.(js|jsx)?$/,
+      exclude: [
+          [/node_modules|bootstrap-datetimepicker/]
+      ],
       loader: 'babel-loader',
       query: {
-        presets: ['@babel/env', '@babel/react'],
-        plugins: [
-          ['@babel/plugin-proposal-decorators', { 'legacy': true }],
-          ['@babel/plugin-proposal-class-properties', { 'loose': true }],
-          ['@babel/plugin-proposal-object-rest-spread'],
-          ['@babel/plugin-transform-runtime'],
-        //   ['@babel/plugin-transform-modules-commonjs', { 'loose': true }],
-        //   ['@babel/plugin-transform-object-assign'],
-        //   ['@babel/plugin-transform-react-jsx-source'],
-        //   ['@babel/plugin-transform-block-scoping']
+        presets: [
+            ["@babel/env", {
+                "useBuiltIns": "usage",
+                "modules": false
+            }],
+            ["@babel/react", {
+                "development": true
+            }]
         ],
+        plugins: [
+            ["react-hot-loader/babel"],
+            ["@babel/plugin-proposal-decorators", { "legacy": true }],
+            ["@babel/plugin-proposal-class-properties", { "loose": true }],
+            ["@babel/plugin-transform-modules-commonjs", { "loose": true }],
+            ["@babel/plugin-proposal-object-rest-spread"],
+            ["@babel/plugin-transform-runtime"],
+            ["@babel/plugin-proposal-export-default-from"],
+            ["@babel/plugin-proposal-json-strings"],
+            ["@babel/plugin-syntax-dynamic-import"],
+            ["@babel/plugin-syntax-import-meta"],
+            ["@babel/plugin-transform-block-scoping"],
+            ["@babel/plugin-transform-object-assign"],
+            ["@babel/plugin-transform-react-jsx"],
+            ["@babel/plugin-transform-react-jsx-self"],
+            ["@babel/plugin-transform-react-jsx-source"],
+
+            ["module-resolver", {
+              "alias": {
+              }
+            }]
+                  ]
       }
+    },
+    {
+        test: /\.(sa|sc|c)ss$/,
+        // Note, the order in which webpack applies
+        // loaders on the matching resources is from last to first.
+        use:  [
+            'style-loader',
+            {
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    // you can specify a publicPath here
+                    // by default it use publicPath in webpackOptions.output
+                    publicPath: '../'
+                }
+            },
+            'css-loader',
+            'postcss-loader',
+            'sass-loader'
+        ]
     },
     {
       test: /\.(jpe?g|png|gif|svg)$/i,

@@ -65,7 +65,7 @@ const startApplication = () => {
 //       .catch(() => {
 //         renderRoutes()
 //     })
-})
+    })
 }
 
 startApplication()
