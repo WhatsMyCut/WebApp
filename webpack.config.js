@@ -1,10 +1,11 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var webpack = require('webpack');
-var srcDirectory = path.resolve('./src');
-var nodeModulesDirectory = path.resolve('node_modules');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const srcDirectory = path.resolve('./src');
+const nodeModulesDirectory = path.resolve('node_modules');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WebpackMd5Hash = require("webpack-md5-hash");
 
 
 var isProduction = process.env.NODE_ENV === 'production'
@@ -28,6 +29,7 @@ var getPlugins = () => {
         //filename: './src/styles/' + isProduction ? '[name].[hash].css' : '[name].css',
         //chunkFilename: './build/styles/' + isProduction ? '[id].[hash].css' : '[id].css',
     }),
+    new WebpackMd5Hash()
  ]
 
   if (isProduction) {
