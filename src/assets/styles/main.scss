@@ -1,0 +1,42 @@
+@import "./vendor";
+@import "./variables";
+// @import "./listComponent";
+// @import "./search";
+// @import "./modal";
+@import "../../views/AppView/AppView";
+@import "../../components/Button/Button";
+@import "../../components/Container/Container";
+
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+// better scrollbars for webkit on Windows
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+[aria-label=grid]:focus,
+[role=grid]:focus {
+  outline: none;
+}

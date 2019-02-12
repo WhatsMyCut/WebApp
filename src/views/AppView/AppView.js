@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { Container } from '../../components/'
-import { baseStyles } from '../../styles/styles';
+import { baseStyles } from '../../assets/styles/styles';
 
 export default class AppView extends Component {
 

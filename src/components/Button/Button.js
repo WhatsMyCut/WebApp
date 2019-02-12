@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { baseStyles } from '../../styles/styles'
+import { baseStyles } from '../../assets/styles/styles'
 
 export default class Button extends React.Component {
 
