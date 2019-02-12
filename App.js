@@ -9,6 +9,9 @@ import React, { Component } from "react";
 
 import { AppView } from './src/views/'
 import { Button } from './src/components/'
+import './src/assets/styles/_main.scss'
+import { hot } from 'react-hot-loader/root'
+
 // import QuickPicker from "quick-picker";
 // import NavigationService from "./src/services/navigationService";
 // import { timeout } from "./src/services/helpers";
@@ -17,7 +20,7 @@ import { Button } from './src/components/'
 // import { tracker } from "./src/services/googleAnalytics";
 
 
-export default class App extends Component {
+class App extends Component {
   async componentDidMount() {}
 
   render() {
@@ -29,7 +32,7 @@ export default class App extends Component {
     )
   }
 }
-
+export default hot(App)
 // const styles = StyleSheet.create({
 //   container: {
 //     flex: 1,
