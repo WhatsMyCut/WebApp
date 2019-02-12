@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { baseStyles, baseColors, theme } from './styles'
 
 import { Container } from '../../components/'
-import { Styles } from '../../styles/styles';
+import { baseStyles } from '../../styles/styles';
 
 export default class AppView extends Component {
 
@@ -17,11 +16,11 @@ export default class AppView extends Component {
 
   render() {
     return (
-      <Container style={this.props.style}>
-        <Container id="leftPanel" style={Styles.left}>
+      <Container className="AppView" style={this.props.style}>
+        <Container id="leftPanel" className='left-panel'>
             Left
         </Container>
-        <Container id="rightPanel" style={Styles.right}>
+        <Container id="rightPanel" className={this.props.className}>
             Right
         </Container>
       </Container>
@@ -31,6 +30,7 @@ export default class AppView extends Component {
 
 AppView.propTypes = {
   style: PropTypes.object,
+  className: PropTypes.string
 }
 
 AppView.defaultProps = {

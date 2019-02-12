@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { baseStyles } from './styles'
+import { baseStyles } from '../../styles/styles'
 
 export default class Container extends Component {
 
@@ -10,12 +10,12 @@ export default class Container extends Component {
   }
 
   componentDidMount () {
-    console.log('Container mounted', this.props);
+    // console.log('Container mounted', this.props);
   }
 
   render() {
     return (
-      <div style={this.props.style}>
+      <div id={this.props.id} className={this.props.className} style={this.props.style}>
         {this.props.children}
       </div>
     );
@@ -24,10 +24,13 @@ export default class Container extends Component {
 
 Container.propTypes = {
   style: PropTypes.object,
+  className: PropTypes.string,
+  id: PropTypes.string,
   children: PropTypes.node
 }
 
 Container.defaultProps = {
-  style: baseStyles.container
+  style: baseStyles.container,
+  classname: 'Container',
 }
 //export default Container

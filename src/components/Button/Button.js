@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { baseStyles } from './styles'
+import { baseStyles } from '../../styles/styles'
 
 export default class Button extends React.Component {
 
@@ -9,8 +9,9 @@ export default class Button extends React.Component {
     }
 
     render() {
+        const tc =  'btn btn-primary '
         return (
-            <a className='btn btn-primary' style={this.props.style}>
+            <a className={tc}  id={this.props.id} style={this.props.style}>
                 {this.props.text}
             </a>
         );
@@ -19,6 +20,7 @@ export default class Button extends React.Component {
 
 Button.propTypes = {
     style: PropTypes.object,
+    id: PropTypes.string,
     text: PropTypes.string
 }
 
