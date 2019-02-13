@@ -26,7 +26,6 @@ class App extends Component {
   render() {
     return (
         <AppView>
-          test
           <Button />
         </AppView>
     )
