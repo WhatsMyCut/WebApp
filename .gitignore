@@ -59,4 +59,4 @@ yarn.lock
 
 config.json
 out/
-src/dist
+dist/
