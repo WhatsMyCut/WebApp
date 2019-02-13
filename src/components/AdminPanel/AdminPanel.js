@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import MenuPanel from '../MenuPanel'
+import DetailPanel from '../DetailPanel'
 import { financeAccountItemStyles } from '../../assets/styles/styles'
 
 export default class AdminPanel extends Component {
@@ -16,8 +18,8 @@ export default class AdminPanel extends Component {
   render() {
     return (
       <main id={this.props.id} className={this.props.className} style={this.props.style}>
-        <section className="leftContent">Left</section>
-        <section className="rightContent">rightContent</section>
+        <MenuPanel />
+        <DetailPanel />
       </main>
     );
   }
