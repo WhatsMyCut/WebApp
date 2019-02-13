@@ -116,8 +116,8 @@ function compileStylesTask() {
   var sourcemaps = require('gulp-sourcemaps')
   var postcss = require('gulp-postcss')
 
-  var outputDir = './src/dist'
-  var sourcemapDir = './src/dist/sourcemaps'
+  var outputDir = './dist'
+  var sourcemapDir = './dist/sourcemaps'
   var sassOpts = {
     includePaths: ['./node_modules/normalize.css'],
     outputStyle: isProduction ? 'compressed' : 'nested'
@@ -155,7 +155,7 @@ function formatAndLintStylesTask() {
   var scss = require('postcss-scss')
   var reporter = require('postcss-reporter')
 
-  var outputDir = './src/dist'
+  var outputDir = './dist'
   var plugins = [
     stylefmt(),
     stylelint({ config: require('./stylelint.config') }),

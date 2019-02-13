@@ -29,7 +29,7 @@ var getPlugins = () => {
         //filename: './src/styles/' + isProduction ? '[name].[hash].css' : '[name].css',
         //chunkFilename: './build/styles/' + isProduction ? '[id].[hash].css' : '[id].css',
     }),
-    new WebpackMd5Hash()
+    //new WebpackMd5Hash()
  ]
 
   if (isProduction) {
@@ -95,7 +95,7 @@ module.exports = {
   module: {
     rules: [
     {
-        test: /\.ttf$/,
+        test: /\.(o|t)tf$/,
         loader: "url-loader", // or directly file-loader
         include: path.resolve(srcDirectory, "node_modules/react-native-vector-icons"),
     },
@@ -150,7 +150,7 @@ module.exports = {
                 options: {
                     // you can specify a publicPath here
                     // by default it use publicPath in webpackOptions.output
-                    publicPath: '../'
+                    publicPath: './assets'
                 }
             },
             'css-loader',
@@ -165,7 +165,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             query: {
-              name:'assets/[name].[ext]'
+              name:'/assets/[name].[ext]'
             }
           }
         },
