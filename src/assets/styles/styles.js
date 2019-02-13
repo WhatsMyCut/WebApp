@@ -15,7 +15,7 @@ export const baseColors = {
 };
 
 export const theme = {
-  font: "Avenir",
+  fontFamily: 'AvenirLTStd-Book',
   color: "#45CAB5",
   backgroundColor: colors.primary
 };
@@ -264,7 +264,7 @@ export const insightItemStyles = {
 
 export const financeAccountItemStyles = {
   container: {
-    // flex: 1,
+    flex: 1,
     flexDirection: "row",
     paddingVertical: 15,
     justifyContent: "space-between"
