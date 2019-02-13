@@ -1,0 +1,23 @@
+.CurrentUser {
+  display: flex;
+  flex: 0 0 0%;
+  margin: 0;
+  min-width: 250px;
+  border-bottom: #ccc;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.currentUserName {
+  flex: 50%;
+  margin: auto 15px;
+  text-align: left;
+}
+
+.dropdown {
+  width: 30px;
+  height: 15px;
+  background-size: contain;
+  margin: auto 0;
+  float: right;
+}

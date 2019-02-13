@@ -1,0 +1,16 @@
+.AdminPanel {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #FFFFFF;
+  min-height: 80px;
+  max-height: 80px;
+  border-bottom: #ccc;
+  letter-spacing: 1.95px;
+  font-family: Roboto-Bold;
+  font-size: 16px;
+  color: #00345B;
+  box-shadow: 0 3px 5px #333;
+  clear: both;
+}

@@ -1,36 +1,37 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { baseStyles } from '../../assets/styles/styles'
 
-export default class Container extends Component {
+export default class HelpLink extends Component {
 
   constructor (props) {
     super(props);
-    console.log('here', this.props)
+    this.props = props
   }
 
   componentDidMount () {
-    // console.log('Container mounted', this.props);
+    // console.log('HelpLink mounted', this.props);
   }
 
   render() {
     return (
       <div id={this.props.id} className={this.props.className} style={this.props.style}>
-        {this.props.children}
+        <Link to='/help'>Help</Link>
       </div>
     );
   }
 }
 
-Container.propTypes = {
+HelpLink.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   id: PropTypes.string,
   children: PropTypes.node
 }
 
-Container.defaultProps = {
+HelpLink.defaultProps = {
   style: {},
-  className: 'container',
+  className: 'HelpLink',
 }
-//export default Container
+//export default HelpLink

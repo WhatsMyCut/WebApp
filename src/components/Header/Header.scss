@@ -1,0 +1,18 @@
+.Header {
+  display: flex;
+  flex: 1 0 100%;
+  flex-direction: row;
+  width: 100%;
+  background-color: #FFFFFF;
+  min-height: 80px;
+  max-height: 80px;
+  border-bottom: #ccc;
+  letter-spacing: 1.95px;
+  font-family: Roboto-Bold;
+  font-size: 16px;
+  color: #00345B;
+  box-shadow: 0 3px 5px #999;
+  clear: both;
+  z-index: 2;
+}
+

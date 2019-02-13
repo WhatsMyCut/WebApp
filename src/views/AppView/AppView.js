@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { Container } from '../../components/'
-import { baseStyles } from '../../assets/styles/styles';
+import { baseStyles, theme } from '../../assets/styles/styles';
 
+import {
+    AdminPanel,
+    Header
+} from '../../components/'
 export default class AppView extends Component {
 
   constructor (props) {
@@ -17,12 +20,8 @@ export default class AppView extends Component {
   render() {
     return (
       <div className="AppView" style={this.props.style}>
-        <Container id="leftPanel" >
-            Left
-        </Container>
-        <Container id="rightPanel">
-            Right
-        </Container>
+        <Header />
+        <AdminPanel className="AdminPanel clearfix"/>
       </div>
     );
   }
@@ -35,6 +34,6 @@ AppView.propTypes = {
 
 AppView.defaultProps = {
   className: 'AppView',
-  style: {}
+  style: theme
 }
 //export default AppView

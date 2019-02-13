@@ -3,12 +3,21 @@
 // @import "./listComponent";
 // @import "./search";
 // @import "./modal";
-@import "../../views/AppView/AppView";
-@import "../../components/Button/Button";
-@import "../../components/Container/Container";
+@import "./src/views/AppView/AppView";
+@import "./src/components/Button/Button";
+@import "./src/components/Container/Container";
+@import "./src/components/Header/Header";
+@import "./src/components/Logo/Logo";
+@import "./src/components/CurrentUser/CurrentUser";
+@import "./src/components/HelpLink/HelpLink";
+@import "./src/components/ProfileImage/ProfileImage";
+@import "./src/components/AdminPanel/AdminPanel";
 
 html {
   box-sizing: border-box;
+}
+*,*:before,*:after {
+  box-sizing: inherit;
 }
 
 html,
@@ -39,4 +48,14 @@ body {
 [aria-label=grid]:focus,
 [role=grid]:focus {
   outline: none;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }

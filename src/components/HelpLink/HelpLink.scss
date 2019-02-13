@@ -1,0 +1,17 @@
+.HelpLink {
+  flex: 0 0 10%;
+  padding: 30px 15px;
+  text-align: center;
+  vertical-align: middle;
+  height: 80px;
+}
+.HelpLink a {
+  flex: 0 0 0%;
+  height: inherit;
+  margin: auto auto;
+}
+.HelpLink a:hover {
+  color: red;
+  text-decoration: none;
+}
+

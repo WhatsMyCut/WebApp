@@ -1,0 +1,14 @@
+.ProfileImage {
+  padding: 15px 5px;
+  flex: 0 1 0%;
+  width: 81px;
+}
+
+.profileImageCircle {
+  flex: 0.5;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  border: 1px solid #ccc;
+}
