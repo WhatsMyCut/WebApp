@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { baseStyles } from '../../assets/styles/styles'
-const logoImage = require('../../assets/images/FOA.png')
-const mainImage = require('../../assets/images/FOAMain.png')
+const logoImage = require('../../assets/images/upli.png')
+const mainImage = ''
 
 export default class Logo extends Component {
 
@@ -16,10 +16,14 @@ export default class Logo extends Component {
   }
 
   render() {
+    let tagline;
+    if (this.props.mainImage) {
+      tagline = <img src={this.props.mainImage} className="tagline" />
+    }
     return (
       <section id={this.props.id} className={this.props.className} style={this.props.style}>
         <img src={this.props.logoImage} className="bankLogo" />
-        <img src={this.props.mainImage} className="bankMain" />
+        {tagline}
       </section>
     );
   }
@@ -30,8 +34,8 @@ Logo.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   children: PropTypes.node,
-  logoImage: PropTypes.object,
-  mainImage: PropTypes.object,
+  logoImage: PropTypes.string,
+  mainImage: PropTypes.string,
   bankName: PropTypes.string
 }
 

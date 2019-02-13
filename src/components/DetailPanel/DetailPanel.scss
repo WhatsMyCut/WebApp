@@ -1,9 +1,12 @@
 .DetailPanel {
   flex-basis: 60%;
   height: 100vh;
-  background-color: #F2F2F2;
   padding: 35px;
-  font-family: Roboto;
+  font-family: Roboto-Bold;
+  font-size: 20px;
+  color: #00345B;
+  letter-spacing: 0;
+  line-height: 20px;
 }
 
 .DetailPanel h2 {

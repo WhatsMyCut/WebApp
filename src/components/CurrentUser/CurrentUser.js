@@ -5,7 +5,7 @@ import {
   ProfileImage
 } from '../../components/'
 import { financeAccountItemStyles } from '../../assets/styles/styles'
-const dropArrowImage = require('../../assets/images/Arrow-down.png')
+const dropArrowImage = require('../../assets/images/Arrow-down-white.png')
 
 export default class CurrentUser extends Component {
 

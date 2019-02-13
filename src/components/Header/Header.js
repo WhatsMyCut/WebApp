@@ -38,6 +38,6 @@ Header.propTypes = {
 
 Header.defaultProps = {
   style: {},
-  className: 'Header',
+  className: 'Header gradient-upli',
 }
 //export default Header

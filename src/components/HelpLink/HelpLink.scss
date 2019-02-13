@@ -4,11 +4,15 @@
   text-align: center;
   vertical-align: middle;
   height: 80px;
+  font-family: Roboto-Bold;
+  font-size: 16px;
+  letter-spacing: 1.95px;
 }
 .HelpLink a {
   flex: 0 0 0%;
   height: inherit;
   margin: auto auto;
+  color: #FFFFFF;
 }
 .HelpLink a:hover {
   color: red;

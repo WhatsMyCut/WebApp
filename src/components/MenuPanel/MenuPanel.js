@@ -33,7 +33,7 @@ MenuPanel.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   children: PropTypes.node,
-  arrowImage: PropTypes.object,
+  arrowImage: PropTypes.string,
   sectionTitle: PropTypes.string,
   sectionDescription: PropTypes.string
 }
