@@ -17,7 +17,7 @@ import Actions from './src/Actions/Actions'
 const store = createApplicationStore()
 
 const getRoutes = () => {
-  console.log('getRoutes', store)
+  // console.log('getRoutes', store)
   return (
     <Route path='/' component={ App } />
   )
@@ -25,7 +25,7 @@ const getRoutes = () => {
 
 const renderRoutes = () => {
     const routes = getRoutes()
-    console.log('renderRoutes', store, routes)
+    // console.log('renderRoutes', store, routes)
     return render(
         <Provider store={store}>
           <ErrorBoundary>
@@ -55,7 +55,7 @@ const fetchConfiguration = () => {
 
 const startApplication = () => {
     fetchConfiguration().then(config => {
-        console.log('startApplication', config, adapter)
+        //console.log('startApplication', config, adapter)
         const adapter = createRestAdapter({ host: config.host })
         renderRoutes()
 //     // create an adapter for making API calls
